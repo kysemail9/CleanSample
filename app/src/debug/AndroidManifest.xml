@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.kys.daggerhiltclean">
+
+    <application>
+        <activity
+            android:name="com.kys.daggerhiltclean.HiltTestActivity"
+            android:exported="false"  />
+    </application>
+
+</manifest>
