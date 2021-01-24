@@ -59,11 +59,14 @@ inline fun <reified T : Fragment> launchFragmentInHiltContainer(
     ).putExtra(EmptyFragmentActivity.THEME_EXTRAS_BUNDLE_KEY, themeResId)
 
     ActivityScenario.launch<HiltTestActivity>(startActivityIntent).onActivity { activity ->
+
         activity.supportFragmentManager.fragmentFactory = factory
+
         val fragment: Fragment = activity.supportFragmentManager.fragmentFactory.instantiate(
             Preconditions.checkNotNull(T::class.java.classLoader),
             T::class.java.name
         )
+
         fragment.arguments = fragmentArgs
 
         activity.supportFragmentManager

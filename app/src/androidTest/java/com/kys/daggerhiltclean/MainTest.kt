@@ -35,7 +35,6 @@ class MainTest {
 
     @Inject
     lateinit var fragmentFactory: MainFragmentFactory
-    //@BindValue var myString: String = "gggf" // Doesn't work?? I'm prob doing it wrong.
 
     @Before
     fun init() {
@@ -51,12 +50,14 @@ class MainTest {
     fun mainFragmentTest(){
         val scenario = launchFragmentInHiltContainer<MainFragment>(
             factory = fragmentFactory
+            // Note : need to provide NavController to make this test case work.
         )
     }
 
     @Test
     fun mainActivityTest(){
-        val scenario = launchActivity<MainActivity>()
+        val scenario = launchActivity<MainActivity>(
+        )
     }
 
     @Module
